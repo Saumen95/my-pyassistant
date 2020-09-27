@@ -7,16 +7,7 @@ from gtts import gTTS
 import playsound
 import random
 
-class Person:
-    name = ''
 
-    def setname(self, name):
-        self.name = name
-
-def there_exits(terms):
-    for term in terms:
-        if term in voice_data:
-            return True
 
 r = sr.Recognizer()
 
@@ -55,6 +46,7 @@ def speak(audio_string):
 def respond(voice_data):
     with sr.Microphone as source:
         audio = r.listen()
+        voice_data = audio
         if 'what is your name' in voice_data:
             speak(audio)
 
